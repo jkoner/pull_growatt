@@ -1,0 +1,13 @@
+[Influx]
+ServerURL = http://localhost:8086
+Token = your-token
+Org = your-org
+Bucket = your
+
+[Growatt]
+ServerURL = your-growatt-server
+FieldFile = fields.csv
+
+[Logging]
+LogLevel = INFO
+LogFile = pull_growatt.log
