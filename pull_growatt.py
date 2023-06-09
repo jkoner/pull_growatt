@@ -20,7 +20,12 @@ log = logging.getLogger()
 log.setLevel(logging.INFO)
 
 #write log to file
-fh = logging.FileHandler(path + "/" + configparser['Logging']['LogFile'])
+# Create the log file if it doesn't already exist
+log_file = path + "/" + configparser['Logging']['LogFile']
+if not os.path.exists(log_file):
+    open(log_file, 'a').close()
+
+fh = logging.FileHandler(log_file)
 configparser['Logging']['LogLevel'] = configparser['Logging']['LogLevel'].upper()
 if configparser['Logging']['LogLevel'] == 'DEBUG':
     fh.setLevel(logging.DEBUG)
